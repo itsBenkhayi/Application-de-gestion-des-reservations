@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataRaid">
+  <DataContextMoniker Name="/DataRaidDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5067420d-e437-4d88-8298-f515221df31f" absoluteBounds="1, 1, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataRaidDataContext/Client" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bdf78495-1735-4a9b-9dc7-6484e37bcb86" absoluteBounds="1.0150000000000001, 1.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9e18620c-0578-4ad3-b4f8-82a9ea6a5c52" absoluteBounds="4.5, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataRaidDataContext/Negocier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a09a7af5-1358-461f-80e8-0b98c8d97002" absoluteBounds="4.515, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 1.76044840494792); (4.5 : 1.76044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataRaidDataContext/Client/Client_Negocier" />
+      <nodes>
+        <classShapeMoniker Id="5067420d-e437-4d88-8298-f515221df31f" />
+        <classShapeMoniker Id="9e18620c-0578-4ad3-b4f8-82a9ea6a5c52" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4a0f7f41-91ab-4338-bc63-53e593d4c8c8" absoluteBounds="7.25, 4.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataRaidDataContext/Region" />
+      <nestedChildShapes>
+        <elementListCompartment Id="561beafa-7234-45e2-b3b9-b6367cf4c5fd" absoluteBounds="7.265, 4.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="59b14d1a-8991-4bd3-912b-1438197784e8" absoluteBounds="1, 4.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataRaidDataContext/Reservation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f26928fc-32cf-4c61-b323-8fa6f1677d6d" absoluteBounds="1.0150000000000001, 5.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2 : 3.15549967447917); (2 : 4.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataRaidDataContext/Client/Client_Reservation" />
+      <nodes>
+        <classShapeMoniker Id="5067420d-e437-4d88-8298-f515221df31f" />
+        <classShapeMoniker Id="59b14d1a-8991-4bd3-912b-1438197784e8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="742d1737-6c45-4d61-9ff3-8b659b09a3e9" absoluteBounds="4.5, 3.25, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DataRaidDataContext/Riad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="69e1651e-a60d-47e0-a666-c432089757fb" absoluteBounds="4.515, 3.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 3.25); (5.5 : 2.52089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataRaidDataContext/Riad/Riad_Negocier" />
+      <nodes>
+        <classShapeMoniker Id="742d1737-6c45-4d61-9ff3-8b659b09a3e9" />
+        <classShapeMoniker Id="9e18620c-0578-4ad3-b4f8-82a9ea6a5c52" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 5.09699625651042); (6.5 : 5.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataRaidDataContext/Region/Region_Riad" />
+      <nodes>
+        <classShapeMoniker Id="4a0f7f41-91ab-4338-bc63-53e593d4c8c8" />
+        <classShapeMoniker Id="742d1737-6c45-4d61-9ff3-8b659b09a3e9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="15907275-3109-404a-b7aa-9debb3312810" absoluteBounds="7.625, 1, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataRaidDataContext/TypeHebergement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cac481b-0ced-4998-ac30-2cd16aec2223" absoluteBounds="7.64, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.625 : 1.59699625651042); (6.5 : 1.59699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataRaidDataContext/TypeHebergement/TypeHebergement_Negocier" />
+      <nodes>
+        <classShapeMoniker Id="15907275-3109-404a-b7aa-9debb3312810" />
+        <classShapeMoniker Id="9e18620c-0578-4ad3-b4f8-82a9ea6a5c52" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.46875 : 2.19399251302083); (9.46875 : 6.18674967447917); (3 : 6.18674967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataRaidDataContext/TypeHebergement/TypeHebergement_Reservation" />
+      <nodes>
+        <classShapeMoniker Id="15907275-3109-404a-b7aa-9debb3312810" />
+        <classShapeMoniker Id="59b14d1a-8991-4bd3-912b-1438197784e8" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

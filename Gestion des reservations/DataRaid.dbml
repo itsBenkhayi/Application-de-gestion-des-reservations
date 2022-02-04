@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Riad" Class="DataRaidDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-J5SB1HI;Initial Catalog=Riad;Integrated Security=True" SettingsObjectName="Gestion_des_reservations.Properties.Settings" SettingsPropertyName="RiadConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="CodeClient" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GSM" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mail" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Adresse" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pays" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Client_Negocier" Member="Negociers" ThisKey="CodeClient" OtherKey="CodeClient" Type="Negocier" />
+      <Association Name="Client_Reservation" Member="Reservations" ThisKey="CodeClient" OtherKey="CodeClient" Type="Reservation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Negocier" Member="Negociers">
+    <Type Name="Negocier">
+      <Column Name="NumeroR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodeClient" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateNego" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Prix_Nuite" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="Client_Negocier" Member="Client" ThisKey="CodeClient" OtherKey="CodeClient" Type="Client" IsForeignKey="true" />
+      <Association Name="Riad_Negocier" Member="Riad" ThisKey="NumeroR" OtherKey="NumeroR" Type="Riad" IsForeignKey="true" />
+      <Association Name="TypeHebergement_Negocier" Member="TypeHebergement" ThisKey="NumeroType" OtherKey="NumeroType" Type="TypeHebergement" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Region" Member="Regions">
+    <Type Name="Region">
+      <Column Name="CodeRegion" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LibelleRegion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Region_Riad" Member="Riads" ThisKey="CodeRegion" OtherKey="CodeReg" Type="Riad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reservation" Member="Reservations">
+    <Type Name="Reservation">
+      <Column Name="NumRes" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NumeroType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodeClient" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateDebut" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Client_Reservation" Member="Client" ThisKey="CodeClient" OtherKey="CodeClient" Type="Client" IsForeignKey="true" />
+      <Association Name="TypeHebergement_Reservation" Member="TypeHebergement" ThisKey="NumeroType" OtherKey="NumeroType" Type="TypeHebergement" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Riad" Member="Riads">
+    <Type Name="Riad">
+      <Column Name="NumeroR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NomR" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AdresseRueR" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CodePostaleR" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="VilleR" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TelephoneR" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NomContactR" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CodeReg" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreDePlaces" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Riad_Negocier" Member="Negociers" ThisKey="NumeroR" OtherKey="NumeroR" Type="Negocier" />
+      <Association Name="Region_Riad" Member="Region" ThisKey="CodeReg" OtherKey="CodeRegion" Type="Region" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeHebergement" Member="TypeHebergements">
+    <Type Name="TypeHebergement">
+      <Column Name="NumeroType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LibelleType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TypeHebergement_Negocier" Member="Negociers" ThisKey="NumeroType" OtherKey="NumeroType" Type="Negocier" />
+      <Association Name="TypeHebergement_Reservation" Member="Reservations" ThisKey="NumeroType" OtherKey="NumeroType" Type="Reservation" />
+    </Type>
+  </Table>
+</Database>

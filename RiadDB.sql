@@ -1,6 +1,9 @@
-create database Riad
-use Riad
+create database Riad;
+go
+go
 
+use Riad
+go
 create table Region(
 	CodeRegion varchar(50) primary key,
 	LibelleRegion varchar(50) not null,
